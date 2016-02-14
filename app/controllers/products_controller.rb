@@ -1,10 +1,13 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
+
+
   # GET /products
   # GET /products.json
   def index
     @products = Product.all
+    fresh_when(@products)
   end
 
   # GET /products/1
@@ -65,6 +68,7 @@ class ProductsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
+      fresh_when(@product)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
