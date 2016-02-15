@@ -21,7 +21,7 @@ class ItemsInCartsControllerTest < ActionController::TestCase
       post :create, product_id: products(:three).id 
     end
 
-    assert_redirected_to cart_path(assigns(:items_in_cart).cart)
+    assert_redirected_to store_path
   end
 
   test "should show items_in_cart" do
@@ -44,6 +44,6 @@ class ItemsInCartsControllerTest < ActionController::TestCase
       delete :destroy, id: @items_in_cart
     end
 
-    assert_redirected_to items_in_carts_path
+    assert_redirected_to store_path
   end
 end
