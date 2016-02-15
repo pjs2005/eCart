@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
 	has_many :items_in_carts
+	has_many :orders, through: :items_in_carts
 
 	before_destroy :ensure_not_located_in_any_cart
 	validates :title, :description, length: {minimum: 5}
