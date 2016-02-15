@@ -31,7 +31,8 @@ class ItemsInCartsController < ApplicationController
 
     respond_to do |format|
       if @items_in_cart.save
-        format.html { redirect_to @items_in_cart.cart }
+        format.html { redirect_to store_url }
+        format.js
         format.json { render :show, status: :created, location: @items_in_cart }
       else
         format.html { render :new }

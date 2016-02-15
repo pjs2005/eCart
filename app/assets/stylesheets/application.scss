@@ -49,13 +49,32 @@
     padding: 1em 2em;
     width: 13em;
     background: #18669A;
+
+    form, div {
+      display: inline;
+    }  
+ 
+    input {
+      font-size: small;
+    }
+
+    #cart {
+      font-size: smaller;
+      color:     white;
+
+      table {
+        border-top:    1px dotted #FFF;
+        border-bottom: 1px dotted #FFF;
+        margin-bottom: 10px;
+      }
+    }
 	
     ul {
       padding: 0;
       li {
         list-style: none;
         a {
-          color: #000;
+          color: white;
           font-size: small;
         }
       }
