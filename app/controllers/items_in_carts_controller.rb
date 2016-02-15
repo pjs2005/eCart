@@ -32,7 +32,7 @@ class ItemsInCartsController < ApplicationController
     respond_to do |format|
       if @items_in_cart.save
         format.html { redirect_to store_url }
-        format.js
+        format.js { @current_item = @items_in_cart}
         format.json { render :show, status: :created, location: @items_in_cart }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class ItemsInCartsController < ApplicationController
   def update
     respond_to do |format|
       if @items_in_cart.update(items_in_cart_params)
-        format.html { redirect_to @items_in_cart, notice: 'Items in cart was successfully updated.' }
+        format.html { redirect_to @items_in_cart, notice: 'Items was removed from the cart.' }
         format.json { render :show, status: :ok, location: @items_in_cart }
       else
         format.html { render :edit }
@@ -62,7 +62,7 @@ class ItemsInCartsController < ApplicationController
     cart =  @items_in_cart.cart
     @items_in_cart.destroy
     respond_to do |format|
-      format.html { redirect_to cart, notice: 'Items in cart was successfully destroyed.' }
+      format.html { redirect_to store_url, notice: 'Items in cart was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
